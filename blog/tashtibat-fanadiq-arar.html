@@ -84,7 +84,9 @@ ul,ol{padding-right:22px;margin:0 0 16px}
 li{margin-bottom:8px}
 .article-body strong{color:var(--gold-light)}
 .article-body figure{margin:28px 0}
-.article-body figure img{border-radius:10px;display:block;width:100%}
+.article-body figure img{border-radius:10px;display:block;width:100%;object-fit:cover}
+.gallery-grid figure img{aspect-ratio:4/3}
+.article-body>figure img{aspect-ratio:16/9}
 .article-body figcaption{color:var(--muted);font-size:13px;margin-top:10px;text-align:center;line-height:1.6}
 .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
 .gallery-grid figure{margin:0}
