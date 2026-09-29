@@ -226,7 +226,7 @@
 .contact-form textarea{min-height:100px;resize:vertical}
 .contact-form select{cursor:pointer}
 .contact-form .cf-field{display:flex;flex-direction:column}
-.contact-form .cf-honeypot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.contact-form .cf-honeypot{position:absolute;top:0;inset-inline-start:0;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;opacity:0;pointer-events:none}
 .contact-form-status{font-size:12px;margin-top:2px;display:none}
 .contact-form-status.is-success{color:#7fbf7f;display:block}
 .contact-form-status.is-error{color:#e08a7d;display:block}
