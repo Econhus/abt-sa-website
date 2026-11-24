@@ -37,6 +37,24 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://abt-sa.com/blog/maayir-al-aamal-al-inshaiya-lilmabani.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://abt-sa.com/muqawil-tashtibat-jeddah.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://abt-sa.com/muqawil-khrasana-wa-bina-jeddah.html</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://abt-sa.com/en/</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -69,6 +87,12 @@
   <url>
     <loc>https://abt-sa.com/en/blog/tarkeeb-dakt-takyif-wa-anzimat-itfa-hariq.html</loc>
     <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://abt-sa.com/en/blog/maayir-al-aamal-al-inshaiya-lilmabani.html</loc>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
