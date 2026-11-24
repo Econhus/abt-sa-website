@@ -1,18 +1,49 @@
-# abt-sa-website
+# دليل العمل على موقع شركة إعمار البيان الثابت (abt-sa.com)
 
-Static Arabic (RTL) marketing site for ABT (abt-sa.com), a contractor in Arar / Jeddah, Saudi Arabia. Plain HTML/CSS/JS plus one PHP endpoint (`contact.php`). No build step.
+موقع ثابت لشركة مقاولات في عرعر وجدة: ملفات HTML وCSS وJS، وملف PHP واحد هو `contact.php`.
+اللغة الأساسية العربية واتجاه الصفحات من اليمين لليسار (RTL)، وتوجد نسخة إنجليزية تحت `en/`.
+لا توجد خطوة بناء (build step): ما في المستودع هو ما يُرفع إلى الاستضافة كما هو.
 
-## Layout
-- `index.html` Arabic home; `en/index.html` English home. `blog/` and `en/blog/` mirror each other (same filenames).
-- `muqawil-*-jeddah.html` Jeddah landing pages. `assets/` images (prefer `.webp`).
-- `sitemap.xml` and `robots.txt` must be updated whenever a page is added.
-- `_test-sharpen2.html`, `index-old-backup.html`, `abt-index-v6-clients-logos.html` are old drafts; do not edit or link them.
+## هيكل الموقع
 
-## Rules
-- Arabic is the primary language: keep `lang="ar" dir="rtl"`; every Arabic blog post needs an English twin in `en/blog/`.
-- Every page needs one `<h1>`, title, meta description, canonical, GA4 tag, and `alt` on all images.
-- Do not change `contact.php` validation or the honeypot field without asking; never commit secrets or recipient emails.
-- Run `python3 scripts/check-site.py` before committing; it must print `OK`.
+- الصفحة الرئيسية العربية: `index.html` في الجذر.
+- الصفحة الرئيسية الإنجليزية: `en/index.html`.
+- المدونة العربية: مجلد `blog/` (فهرسها `blog/index.html`).
+- المدونة الإنجليزية: مجلد `en/blog/` (فهرسها `en/blog/index.html`).
+- مجلدا `blog/` و`en/blog/` متطابقان في أسماء الملفات: كل ملف في أحدهما له ملف بالاسم نفسه في الآخر.
+- صفحات الخدمات في الجذر، مثل `muqawil-tashtibat-jeddah.html` و`muqawil-khrasana-wa-bina-jeddah.html`.
+- الصور والملفات في `assets/`.
+- خريطة الموقع `sitemap.xml`، وملف الزواحف `robots.txt`.
+- نموذج التواصل يرسل إلى `contact.php`.
+- سكربت الفحص: `scripts/check-site.py`.
 
-## Preview
-`python3 -m http.server 8000` (the PHP form will not work there; use `php -S localhost:8000` if PHP is installed).
+## ملفات قديمة لا تُعدّل
+
+هذه الملفات نسخ قديمة أو تجارب، فلا تُعدّل ولا تُحذف، وهي مستثناة من الفحص:
+
+- `_test-sharpen2.html`
+- `index-old-backup.html`
+- `abt-index-v6-clients-logos.html`
+
+## القواعد
+
+1. كل مقال عربي في `blog/` له نسخة إنجليزية في `en/blog/` بالاسم نفسه، والعكس كذلك.
+2. كل صفحة (عدا الملفات القديمة أعلاه) يجب أن تحتوي على:
+   - وسم `<title>`.
+   - وسم `<meta name="description">` غير فارغ.
+   - رابط `<link rel="canonical">`.
+   - علامة تحليلات قوقل GA4 (سكربت من `googletagmanager.com/gtag`).
+   - وسم `<h1>` واحد بالضبط.
+   - سمة `alt` على كل صورة `<img>`.
+   - روابط وصور محلية سليمة (لا تشير إلى ملف غير موجود).
+   - إدخال في `sitemap.xml`.
+3. عند إضافة صفحة جديدة: أضفها إلى `sitemap.xml` بنفس تنسيق الإدخالات الحالية (`changefreq` = `monthly`، و`lastmod` = تاريخ اليوم).
+4. نموذج التواصل `contact.php`: لا يُغيَّر التحقق من الحقول (validation) ولا حقل مصيدة السبام (honeypot، الحقل المخفي `website`) إلا بموافقة صريحة من صاحب الموقع.
+5. الأسرار: لا تُرفع إلى المستودع أي كلمات مرور أو مفاتيح API أو رموز وصول، ولا تُضاف عناوين بريد استلام جديدة أو تُنسخ عناوين الاستلام في ملفات أخرى أو في رسائل الـ commit أو طلبات الدمج.
+6. قبل كل commit: شغّل الفحص ولا تُكمل إلا إذا طبع `OK`:
+
+   ```bash
+   python3 scripts/check-site.py
+   ```
+
+   يخرج السكربت بكود 0 عند النجاح، وبكود 1 مع قائمة بالمشاكل عند الفشل. لا يحتاج مكتبات خارجية.
